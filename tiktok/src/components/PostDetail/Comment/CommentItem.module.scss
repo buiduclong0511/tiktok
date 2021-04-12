@@ -1,0 +1,68 @@
+.wrapper {
+    display: flex;
+    margin-bottom: 16px;
+    align-items: center;
+
+    .user {
+        display: flex;
+        flex: 1;
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .body {
+            padding-top: 4px;
+
+            .username {
+                font-weight: bold;
+                font-size: 1.8rem;
+            }
+
+            .comment {
+                word-break: break-word;
+                font-size: 1.6rem;
+                line-height: 2.2rem;
+                color: rgb(18, 18, 18);
+            }
+
+            .time {
+                span {
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                    color: rgba(22, 24, 35, 0.5);
+                    margin: 6px 0px 0px;
+                }
+
+                .reply {
+                    margin-left: 24px;
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                    background-color: transparent;
+                    color: rgba(22, 24, 35, 0.5);
+                }
+            }
+        }
+    }
+
+    .interactive {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 10px;
+
+        .icon {
+            font-size: 1.6rem;
+            color: rgba(22, 24, 35, 0.5);
+            margin-bottom: 3px;
+        }
+
+        span {
+            font-size: 1.4rem;
+            color: rgba(22, 24, 35, 0.5);
+        }
+    }
+}

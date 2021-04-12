@@ -1,0 +1,20 @@
+.wrapper {
+    position: sticky;
+    top: 60px;
+    padding-top: 2.6rem;
+    max-height: calc(100vh - 60px);
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #F1F1F2;
+        transition: .3s;
+    }
+}
