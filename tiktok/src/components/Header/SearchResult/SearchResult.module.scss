@@ -1,5 +1,5 @@
 .wrapper {
-    display: none;
+    background-color: #fff;
     position: absolute;
     top: calc(100% + 9px);
     left: 0;
@@ -12,6 +12,7 @@
         padding: 1rem 2rem;
         cursor: pointer;
         font-size: 1.5rem;
+        display: block;
 
         &:hover {
             background-color: #F8F8F8;

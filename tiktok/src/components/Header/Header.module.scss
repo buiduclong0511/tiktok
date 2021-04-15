@@ -6,6 +6,7 @@ $height: 60px;
     top: 0;
     height: $height;
     border-bottom: 1px solid rgba(34,90,89,0.2);
+    z-index: 10;
 
     .body {
         height: $height;
@@ -59,6 +60,10 @@ $height: 60px;
         margin: 0 10px;
         font-size: 13px;
         color: #A7A7AB;
+
+        .spinner {
+            animation: rotate 1s linear infinite;
+        }
     }
 
     .line {
@@ -75,5 +80,14 @@ $height: 60px;
         background-color: transparent;
         cursor: pointer;
         color: rgba(22, 24, 35, 0.34);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

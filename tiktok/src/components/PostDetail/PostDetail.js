@@ -8,7 +8,9 @@ export default function PostDetail({
     video,
     onRequestClose,
     data,
-    isLogin
+    isLogin,
+    disable,
+    onCheck
 }) {
     return (
         <div className={styles.wrapper}>
@@ -17,7 +19,12 @@ export default function PostDetail({
                     <VideoPlayer video={video} onRequestClose={onRequestClose} />
                 </Column>
                 <Column sizeDesktop={5}>
-                    <Content data={data} isLogin={isLogin} />
+                    <Content 
+                        data={data} 
+                        isLogin={isLogin} 
+                        disable={disable} 
+                        onCheck={onCheck}
+                    />
                 </Column>
             </Row>
         </div>

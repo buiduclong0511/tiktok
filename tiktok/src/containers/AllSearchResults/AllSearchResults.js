@@ -1,19 +1,17 @@
 import { Row, Column } from '@mycv/mycv-grid'
-import { useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import MainSidebar from '../../components/MainSidebar'
-import PostItem from '../../components/PostItem'
+import AllSearchResultsComponent from '../../components/AllSearchResults'
 
-export default function Home() {
-    const history = useHistory()
+export default function AllSearchResults() {
     const [totalPages, setTotalPages] = useState(0)
     const [currentPage, setCurrentPage] = useState(1)
     const [suggestedAccounts, setSuggestedAccounts] = useState([])
-    const [posts, setPosts] = useState([])
     const [hideSeeBtn, setHideSeeBtn] = useState(false)
     const [isExpanded, setIsExpanded] = useState(false)
+    const [searchResults, setSearchResults] = useState([])
 
     const handleSeeToggle = () => {
         if (currentPage < totalPages) {
@@ -44,15 +42,14 @@ export default function Home() {
     useEffect(getSuggestedAccounts, [currentPage])
 
 
+
     useEffect(() => {
-        axios.get('/api/posts?type=for-you&page=1')
+        const searchKey = window.location.pathname.split('/').pop()
+        axios.get(`/api/users/search?q=${searchKey}&type=less&page=1`)
             .then(res => {
-                setPosts(res.data.data)
-                
+                setSearchResults(res.data.data)
             })
-            .catch(err => {
-                console.log(err)
-            })
+            .catch(err => console.log(err))
     }, [])
 
     return (
@@ -71,7 +68,6 @@ export default function Home() {
                         onSeeToggle={handleSeeToggle}
                         isExpanded={isExpanded}
                         hideSeeBtn={hideSeeBtn}
-                        isHomePage={true}
                     />
                 </Column>
 
@@ -80,24 +76,9 @@ export default function Home() {
                     sizeTablet={8}
                     sizeDesktop={9}
                 >
-                    {posts.map(post => {
-                        return <PostItem 
-                            key={post.id}
-                            avatar={post.user.avatar}
-                            nickname={post.user.nickname}
-                            name={post.user.first_name + ' ' + post.user.last_name}
-                            body={post.description}
-                            music={post.music}
-                            video={post.file_url}
-                            likeCount={post.likes_count}
-                            commentCount={post.comments_count}
-                            shareCount={post.shares_count}
-                            onLike={() => {alert('like')}}
-                            onComment={() => {alert('comment')}}
-                            onShare={() => {alert('share')}}
-                            onShowDetail={() => history.push('/@baoboii_002/video/6948366460460764418')}
-                        />
-                    })}
+                    <AllSearchResultsComponent 
+                        searchResults={searchResults}
+                    />
                 </Column>
             </Row>
         </div>

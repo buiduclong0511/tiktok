@@ -1,22 +1,27 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUsers } from '@fortawesome/free-solid-svg-icons'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import styles from './TopSidebar.module.scss'
 import config from '../../../config'
 import Button from '../../../packages/duclong-button'
 
-export default function TopSidebar({ onLogin = () => {}, isLogin = false }) {
+export default function TopSidebar({ 
+    onLogin = () => {}, 
+    isLogin = false,
+    isFollowingPage = false,
+    isHomePage = false,
+}) {
     return (
         <div className={styles.wrapper}>
-            <NavLink activeClassName={styles.active} to={config.routes.home} className={styles.nav}>
+            <Link to={config.routes.home} className={`${styles.nav} ${isHomePage ? styles.active : ''}`}>
                 <FontAwesomeIcon icon={faHome} className={styles.navIcon} />
                 <span>Dành cho bạn</span>
-            </NavLink>
-            <NavLink activeClassName={styles.active} to={config.routes.following} className={styles.nav}>
+            </Link>
+            <Link to={config.routes.following} className={`${styles.nav} ${isFollowingPage ? styles.active : ''}`}>
                 <FontAwesomeIcon icon={faUsers} className={styles.navIcon} />
                 <span>Đang Follow</span>
-            </NavLink>
+            </Link>
 
             {isLogin ? 
             (<></>) : 

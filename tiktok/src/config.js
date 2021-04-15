@@ -1,8 +1,12 @@
+
+
 const config = {
     routes: {
         home: '/',
         following: '/following',
-        postDetail: '/:nickname/video/:videoId'
+        postDetail: '/:nickname/video/:videoId',
+        profile: '/@:nickname',
+        allSearchResults: '/search/:searchKey'
     }
 }
 

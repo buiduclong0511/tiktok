@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios'
+
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import './assets/styles/global.scss'
+
+//global config baseURL
+axios.defaults.baseURL = 'https://tiktok.f8team.dev';
 
 ReactDOM.render(
   <React.StrictMode>

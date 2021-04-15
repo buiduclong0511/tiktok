@@ -1,4 +1,4 @@
-import { Row, Column } from '@mycv/mycv-grid'
+import { useState } from 'react'
 
 import PostDetailComponent from '../../components/PostDetail'
 import video from '../../assets/video/video1.mp4'
@@ -93,6 +93,14 @@ export default function PostDetail() {
             }
         ]
     }
+    const [disable, setDisable] = useState(true)
+    const onCheck = (e) => {
+        if (e.target.value) {
+            setDisable(false)
+        } else {
+            setDisable(true)
+        }
+    }
     return (
         <PostDetailComponent  
             video={data.video} 
@@ -100,7 +108,8 @@ export default function PostDetail() {
                 window.history.back()
             }}
             data={data}
-            isLogin
+            disable={disable}
+            onCheck={onCheck}
         />
     )
 }

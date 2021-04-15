@@ -6,22 +6,21 @@ import styles from './SuggestAccount.module.scss'
 import config from '../../../config'
 
 export default function AccountItem({
-    img = '',
+    avatar = '',
     nickname = '',
-    username = '',
-    tick = false,
-    children = null
+    name = '',
+    tick = false
 }) {
     const className = [styles.accountWrapper, tick ? styles.ticked : '']
     return (
         <Link to={`${config.routes.home}@${nickname}`} className={className.join(' ')}>
-            <img src={img} alt={nickname} className={styles.avatar} />
+            <img src={avatar} alt={nickname} className={styles.avatar} />
             <div className={styles.body}>
                 <h3 className={styles.nickname}>
                     <span className={styles.nicknameBody}>{nickname}</span>
                     <FontAwesomeIcon icon={faCheckCircle} className={styles.tick} />
                 </h3>
-                <p className={styles.username}>{username}</p>
+                <p className={styles.name}>{name}</p>
             </div>
         </Link>
     )

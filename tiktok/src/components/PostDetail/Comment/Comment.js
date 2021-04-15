@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSmile } from '@fortawesome/free-solid-svg-icons'
 
@@ -6,15 +5,8 @@ import styles from './Comment.module.scss'
 import Button from '../../../packages/duclong-button'
 import CommentItem from './CommentItem'
 
-export default function Comment({ comments = [], isLogin = false }) {
-    const [disable, setDisable] = useState(true)
-    const onCheck = (e) => {
-        if (e.target.value) {
-            setDisable(false)
-        } else {
-            setDisable(true)
-        }
-    }
+export default function Comment({ comments = [], isLogin = false, disable = false, onCheck = () => {} }) {
+    
     if (isLogin) {
         return (
             <div className={styles.wrapperLogin}>

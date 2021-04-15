@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
 
 import SearchResultItem from '../SearchResultItem'
 import styles from './SearchResult.module.scss'
+import config from '../../../config'
 
 export default function SearchResult(
     { 
@@ -30,7 +32,7 @@ export default function SearchResult(
                 tick: false
             }
         ],
-        searchKey = 'Hiền Hồ'
+        searchKey = ''
 }) {
     return (
         <div className={styles.wrapper}>
@@ -43,7 +45,7 @@ export default function SearchResult(
                             onClick = {() => {}}
                         />
             })}
-            <p className={styles.showAllResult}>{`Xem tất cả kết quả dành cho '${searchKey}'`}</p>
+            <Link to={`/search/${searchKey}`} className={styles.showAllResult}>{`Xem tất cả kết quả dành cho '${searchKey}'`}</Link>
         </div>
     )
 }

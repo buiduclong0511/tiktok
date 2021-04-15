@@ -1,0 +1,27 @@
+.wrapper {
+    padding-top: 132.653%;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+
+    .video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .viewsCount {
+        position: absolute;
+        bottom: 17px;
+        left: 13px;
+        z-index: 2;
+        color: #fff;
+        font-size: 1.6rem;
+
+        .icon {
+            margin-right: 4px;
+        }
+    }
+}

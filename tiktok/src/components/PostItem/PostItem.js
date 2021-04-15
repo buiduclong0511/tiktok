@@ -5,7 +5,7 @@ import styles from './PostItem.module.scss'
 import Button from '../../packages/duclong-button'
 
 export default function PostItem({
-    img = '',
+    avatar = '',
     nickname = '',
     username = '',
     body = '',
@@ -21,16 +21,16 @@ export default function PostItem({
 }) {
     return (
         <div className={styles.wrapper}>
-            <img src={img} alt={nickname} className={styles.img} />
+            <img src={avatar} alt={nickname} className={styles.avatar} />
             <div className={styles.mainPost}>
-                <p className={styles.user}>
+                <div className={styles.user}>
                     <h3 className={styles.nickname}>{nickname}</h3>
                     <span className={styles.username}>{username}</span> 
-                </p>
+                </div>
                 <p className={styles.body}>{body}</p>
                 <p className={styles.music}>{music}</p>
                 <div className={styles.post}>
-                    <video src={video} controls className={styles} onClick={onShowDetail} />
+                    <video src={video} controls className={styles} onClick={onShowDetail} autoPlay />
                     <div className={styles.interactive}>
                         <div className={styles.heart} onClick={onLike}>
                             <div className={styles.iconWrapper}>
